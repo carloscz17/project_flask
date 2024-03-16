@@ -72,7 +72,6 @@ def usuarioexiste(users:list, email):
 
 def registrar_contato(nome, email, mensagem, cep, email_login):
     endereco = requests.get(f'https://api.brasilaberto.com/v1/zipcode/{cep}').json()
-
     if len(cep) == 8:
         rua = endereco['result']['street']
         cidade = endereco['result']['city']
