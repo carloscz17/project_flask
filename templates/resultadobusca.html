@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados da Busca</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+        <nav>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/buscar">Buscar</a></li>
+            <li><a href="/entraremcontato">Contato</a></li>
+            <li><a href="/">Logout </a> </li>
+          </ul>
+        </nav>
+<div class="div-voltar">
+    <a href="/home">Voltar</a>
+    </div>
+    <h2>Resultados da Busca na cidade {{ cidade }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email Contato</th>
+                <th>Mensagem</th>
+                <th>Rua</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Email Login</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contato in contatos %}
+            <tr>
+                <td>{{ contato[0] }}</td>
+                <td>{{ contato[1] }}</td>
+                <td>{{ contato[2] }}</td>
+                <td>{{ contato[3] }}</td>
+                <td>{{ contato[4] }}</td>
+                <td>{{ contato[5] }}</td>
+                <td>{{ contato[6] }}</td>
+                <td>{{ contato[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

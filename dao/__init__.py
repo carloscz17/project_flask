@@ -1,10 +1,20 @@
 import requests
 import psycopg2
+from psycopg2 import Error
 
 def conectarDB():
     return conectar_localBD()
 
 def conectar_localBD():
+    con = psycopg2.connect(
+        host='localhost',
+        database='compila',
+        user='postgres',
+        password='1234'
+    )
+    return con
+
+def conectar_cloudBD():
     con = psycopg2.connect(
         host='localhost',
         database='compila',
@@ -72,13 +82,16 @@ def usuarioexiste(users:list, email):
 
 def registrar_contato(nome, email, mensagem, cep, email_login):
     endereco = requests.get(f'https://api.brasilaberto.com/v1/zipcode/{cep}').json()
-    if len(cep) == 8:
-        rua = endereco['result']['street']
+
+    if 'error' not in endereco['result']:
+        if endereco['result']['street'] == '':
+            rua = 'nao encontrado'
+        else:
+            rua = endereco['result']['street']
         cidade = endereco['result']['city']
         estado = endereco['result']['state']
     else:
-        print('CEP inválido')
-        return
+        return False
 
     conexao = conectarDB()
     cur = conexao.cursor()
@@ -95,3 +108,16 @@ def registrar_contato(nome, email, mensagem, cep, email_login):
 
     conexao.close()
     return exito
+
+def buscarContatoPelaCidade(cidade):
+    cidade = cidade.capitalize() #deixa a primeira letra maiuscula
+    try:
+        conexao = conectarDB()
+        cur = conexao.cursor()
+        cur.execute(f"SELECT * FROM contato WHERE cidade= '{cidade}'")
+        contatos = cur.fetchall()
+        cur.close()
+        conexao.close()
+        return contatos
+    except (Exception, Error) as error:
+        print("Erro ao conectar ao banco de dados:", error)

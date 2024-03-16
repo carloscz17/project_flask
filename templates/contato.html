@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <title>Contato</title>
     <link rel="stylesheet" href="../static/style.css">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
+        <nav>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/buscar">Buscar</a></li>
+            <li><a href="/entraremcontato">Contato</a></li>
+            <li><a href="/">Logout </a> </li>
+          </ul>
+        </nav>
+    <div class="div-voltar">
+    <a href="/home">Voltar</a>
+    </div>
     <div>
-        <h1>Contato com o {{nome}}</h1>
+        <h1>Entre em contato conosco</h1>
         <h3>Este formulário será enviado para o e-mail {{email}}</h3>
     </div>
     <div class="div-inferior">
@@ -27,6 +64,8 @@
             <button type="submit">Enviar</button>
 
         </form>
+        <br>
+        <a style="color:red">{{ msg}}</a>
     </div>
 </body>
 </html>

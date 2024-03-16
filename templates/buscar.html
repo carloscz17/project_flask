@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Buscar</title>
     <link rel="stylesheet" href="../static/style.css">
-    <style>
+        <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -30,7 +30,6 @@
             line-height: 1.6;
         }
     </style>
-
 </head>
 <body>
         <nav>
@@ -41,16 +40,21 @@
             <li><a href="/">Logout </a> </li>
           </ul>
         </nav>
-    <div>
-        <h3>Seja bem-vindo {{email}}</h3>
+    <div class="div-voltar">
+    <a href="/home">Voltar</a>
     </div>
-    <div class="container">
-        <h1>Quem sou eu</h1>
-        <p>Olá! Meu nome é Carlos César Grangeiro Adriano. Sou estudante atualmente cursando o 8º período.</p>
-        <p>Mini projeto desenvolvido em Python utilizando Flask!</p>
-        <p>Esta página foi criada em 16/03/2024.</p>
+    <div>
+        <h1>Buscar contato</h1>
+        <h3>Está página tem o objetivo de buscar o contato pela cidade que deseja.</h3>
     </div>
     <div class="div-inferior">
+    <form action="/buscar" method="POST">
+        <label for="cidade">Digite o nome da cidade:</label><br>
+        <input type="text" id="cidade" name="cidade"><br>
+        <input type="submit" value="Buscar">
+    </form>
+        <br>
+        <a style="color:red">{{ msg}}</a>
     </div>
 </body>
 </html>
