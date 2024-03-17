@@ -5,7 +5,7 @@
 
 ### Mini-projeto em python utilizando Flask
 
-### Tecnologia Utilizadas no Backend 📟
+### Tecnologia Utilizadas 📟
 - Python
 - Flask
 - Render
