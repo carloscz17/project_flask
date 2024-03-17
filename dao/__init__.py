@@ -3,7 +3,7 @@ import psycopg2
 from psycopg2 import Error
 
 def conectarDB():
-    return conectar_localBD()
+    return conectar_cloudBD()
 
 def conectar_localBD():
     con = psycopg2.connect(
@@ -16,10 +16,10 @@ def conectar_localBD():
 
 def conectar_cloudBD():
     con = psycopg2.connect(
-        host='localhost',
-        database='compila',
-        user='postgres',
-        password='1234'
+        host='dpg-cnr3350l5elc73b0cjmg-a.oregon-postgres.render.com',
+        database='compilacloud_67yn',
+        user='compilacloud_67yn_user',
+        password='7qMSetpzZiZUuJ1DMbZqEXL8J4Ogp833'
     )
     return con
 
