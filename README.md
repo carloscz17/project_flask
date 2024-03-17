@@ -11,5 +11,7 @@
 - Render
 - Psycopg2
 - Requests
+- HTML
+- CSS
 
 > Status: Em desenvolvimento ⚠️
