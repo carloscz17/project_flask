@@ -9,7 +9,7 @@
 - Python
 - Flask
 - Render
-- psycopg2
-- requests
+- Psycopg2
+- Requests
 
 > Status: Em desenvolvimento ⚠️
