@@ -3,7 +3,7 @@
 ### Desenvolvedor 👨‍💻
 - Carlos César Grangeiro Adriano
 
-### Mini-projeto em python utilizando Flask
+### Mini-projeto em python web utilizando Flask
 
 ### Tecnologia Utilizadas 📟
 - Python
